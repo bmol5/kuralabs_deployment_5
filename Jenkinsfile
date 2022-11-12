@@ -44,7 +44,7 @@ pipeline {
       agent{label 'dockerage'}
         steps{
           sh '''#!/bin/bash
-          docker tag flask:v1 bmol5/flask:latest
+          docker tag flask:latest bmol5/flask:latest
           docker push bmol5/flask:latest
           '''
         }

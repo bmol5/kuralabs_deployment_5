@@ -33,7 +33,8 @@ pipeline {
       agent{label 'dockerage'}
         steps {
           sh '''#!/bin/bash
-            sudo usermod -a -G docker ubuntu
+            sudo usermod -a -G docker $USER
+            newgrp docker
             cd ./dockerf
             docker build -t flask:latest .
             '''

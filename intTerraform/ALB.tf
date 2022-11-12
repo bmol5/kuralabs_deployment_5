@@ -25,6 +25,7 @@ resource "aws_alb" "url_app" {
 
   security_groups = [
     aws_security_group.http.id,
+    aws_security_group.ingress_app.id,
   ]
 
   depends_on = [aws_internet_gateway.igw]

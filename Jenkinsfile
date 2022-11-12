@@ -38,14 +38,16 @@ pipeline {
             cd ./dockerf
             docker build -t flask:latest .
             '''
-            dockerImage = "flask:latest"
         }
     }
     stage ('push') {
       agent{label 'dockerage'}
         steps{
           withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-          dockerImage.push()
+          sh '''#!/bin/bash
+          docker tag flask:latest bmol5/flask:latest
+          docker push bmol5/flask:latest
+          '''
         }
     }
    }

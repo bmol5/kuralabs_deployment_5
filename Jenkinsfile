@@ -29,23 +29,23 @@ pipeline {
       }
     }
    
-    // stage ('image') {
-    //   agent{label 'dockerage'}
-    //     steps {
-    //       sh '''#!/bin/bash
-    //         cd ./dockerf
-    //         docker build -t flask:latest .
-    //         '''
-    //     }
-    // }
-    // stage ('push') {
-    //   agent{label 'dockerage'}
-    //     steps{
-    //       sh '''#!/bin/bash
-    //       docker tag flask:v1 bmol5/flask:latest
-    //       docker push bmol5/flask:latest
-    //       '''
-    //     }
-    // }
+    stage ('image') {
+      agent{label 'dockerage'}
+        steps {
+          sh '''#!/bin/bash
+            cd ./dockerf
+            docker build -t flask:latest .
+            '''
+        }
+    }
+    stage ('push') {
+      agent{label 'dockerage'}
+        steps{
+          sh '''#!/bin/bash
+          docker tag flask:v1 bmol5/flask:latest
+          docker push bmol5/flask:latest
+          '''
+        }
+    }
    }
 }

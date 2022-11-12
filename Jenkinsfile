@@ -33,7 +33,7 @@ pipeline {
       agent{label 'dockerage'}
         steps {
           sh '''#!/bin/bash
-            sudo usermod -a -G docker jenkins
+            sudo usermod -a -G docker ubuntu
             cd ./dockerf
             docker build -t flask:latest .
             '''

@@ -14,8 +14,6 @@ WORKDIR /kuralabs_deployment_3
 
 RUN pip install -r requirements.txt
 
-RUN pip install gunicorn
-
 EXPOSE 5000
 
 ENTRYPOINT FLASK_APP=application flask run localhost=0.0.0.0 -p 5000 

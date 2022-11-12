@@ -8,8 +8,6 @@ pipeline {
         source test3/bin/activate
         pip install pip --upgrade
         pip install -r requirements.txt
-        python3 -m pip install mypy
-        mypy –show-error-codes application.py >> test3/bin/linterrors.txt
         export FLASK_APP=application
         flask run &
         '''
@@ -31,7 +29,7 @@ pipeline {
       }
     }
    
-    stage ('Image') {
+    stage ('image') {
       agent{label 'dockerage'}
         steps {
           sh '''#!/bin/bash
@@ -40,7 +38,7 @@ pipeline {
             '''
         }
     }
-    stage ('Push') {
+    stage ('push') {
       agent{label 'dockerage'}
         steps{
           sh '''#!/bin/bash

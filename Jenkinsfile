@@ -36,7 +36,7 @@ pipeline {
             sudo usermod -a -G docker $USER
             newgrp docker
             cd ./dockerf
-            docker build -t flask:latest .
+            docker build -t urlshort:latest .
             '''
         }
     }
@@ -45,8 +45,8 @@ pipeline {
         steps{
           withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
           sh '''#!/bin/bash
-          docker tag flask:latest bmol5/flask:latest
-          docker push bmol5/flask:latest
+          docker tag urlshort:latest bmol5/urlshort:latest
+          docker push bmol5/urlshort:latest
           '''
         }
     }

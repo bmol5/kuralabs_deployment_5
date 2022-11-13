@@ -30,7 +30,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
   [
   {
       "name": "url-container",
-      "image": "bmol5/flask:latest",
+      "image": "bmol5/urlshort:latest",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {

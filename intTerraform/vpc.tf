@@ -66,6 +66,10 @@ resource "aws_eip" "elastic-ip" {
   vpc = true
 }
 
+resource "aws_eip" "elastic-ip2" {
+  vpc = true
+}
+
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.app_vpc.id
 }
@@ -77,7 +81,7 @@ resource "aws_nat_gateway" "ngw" {
 
 resource "aws_nat_gateway" "ngw2" {
   subnet_id     = aws_subnet.public_b.id
-  allocation_id = aws_eip.elastic-ip.id
+  allocation_id = aws_eip.elastic-ip2.id
 }
 
 resource "aws_route_table" "public" {

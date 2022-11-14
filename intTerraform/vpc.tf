@@ -100,7 +100,7 @@ resource "aws_route" "private_ngw" {
   nat_gateway_id         = aws_nat_gateway.ngw.id
 }
 
-resource "aws_route" "private_ngw" {
+resource "aws_route" "private_ngw2" {
   route_table_id         = aws_route_table.private.id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.ngw2.id

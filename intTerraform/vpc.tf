@@ -66,10 +66,6 @@ resource "aws_eip" "elastic-ip" {
   vpc = true
 }
 
-resource "aws_eip" "elastic-ip2" {
-  vpc = true
-}
-
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.app_vpc.id
 }
@@ -77,11 +73,6 @@ resource "aws_internet_gateway" "igw" {
 resource "aws_nat_gateway" "ngw" {
   subnet_id     = aws_subnet.public_a.id
   allocation_id = aws_eip.elastic-ip.id
-}
-
-resource "aws_nat_gateway" "ngw2" {
-  subnet_id     = aws_subnet.public_b.id
-  allocation_id = aws_eip.elastic-ip2.id
 }
 
 resource "aws_route_table" "public" {
@@ -102,12 +93,6 @@ resource "aws_route" "private_ngw" {
   route_table_id         = aws_route_table.private.id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.ngw.id
-}
-
-resource "aws_route" "private_ngw2" {
-  route_table_id         = aws_route_table.private.id
-  destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = aws_nat_gateway.ngw2.id
 }
 
 resource "aws_security_group" "http" {

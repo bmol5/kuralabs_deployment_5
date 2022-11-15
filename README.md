@@ -3,7 +3,7 @@
 <div align=left>This repository will contain information related to the deployment of the URL-shortner flask application. The main objective of this deployment will be to work with a containerized application and deploy the container using ECS Fargate. Details can be found in the Deployment instructions or the documentation linked below.</div>
 
 ## Location of Documentation:
-* Deployment Document: [click here](https://github.com/bmol5/kuralabs_deployment_4/blob/main/Documentation/Deployment4.pdf)
+* Deployment Document: [click here](https://github.com/bmol5/kuralabs_deployment_5/blob/main/Documentation/Deployment5.pdf)
 
 ## Location of Dockerfile:
 * Deployment Document: [click here](https://github.com/bmol5/kuralabs_deployment_5/blob/main/dockerf/dockerfile)

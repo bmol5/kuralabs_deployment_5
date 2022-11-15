@@ -8,6 +8,7 @@ resource "aws_lb_target_group" "url-app" {
   health_check {
     enabled = true
     path    = "/health"
+    interval = 300
   }
 
   depends_on = [aws_alb.url_app]
